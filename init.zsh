@@ -82,7 +82,7 @@ p6df::modules::julia::jlenv::init() {
 ######################################################################
 p6_julia_env_prompt_info() {
 
-  local str="julia_root=$JLENV_ROOT"
+  local str="julia_root:\t  $JLENV_ROOT"
 
   p6_return_str "$str"
 }
