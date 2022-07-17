@@ -45,7 +45,7 @@ p6df::modules::julia::prompt::init() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::julia::juliaenv::init(dir)
+# Function: p6df::modules::julia::jlenv::init(dir)
 #
 #  Args:
 #	dir -
