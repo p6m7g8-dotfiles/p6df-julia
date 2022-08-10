@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 ######################################################################
 #<
 #
@@ -26,6 +27,8 @@ p6df::modules::julia::init() {
   p6df::modules::julia::jlenv::init "$P6_DFZ_SRC_DIR"
 
   p6df::modules::julia::prompt::init
+
+  p6_return_void
 }
 
 ######################################################################
@@ -40,6 +43,8 @@ p6df::modules::julia::prompt::init() {
   p6df::core::prompt::line::add "p6_lang_prompt_info"
   p6df::core::prompt::line::add "p6_lang_envs_prompt_info"
   p6df::core::prompt::lang::line::add julia
+
+  p6_return_void
 }
 
 ######################################################################
@@ -50,23 +55,22 @@ p6df::modules::julia::prompt::init() {
 #  Args:
 #	dir -
 #
-#  Environment:	 DISABLE_ENVS HAS_JLENV JLENV_ROOT
+#  Environment:	 HAS_JLENV JLENV_ROOT P6_DFZ_LANGS_DISABLE
 #>
 ######################################################################
 p6df::modules::julia::jlenv::init() {
   local dir="$1"
 
-  [ -n "$DISABLE_ENVS" ] && return
-
-  JLENV_ROOT=$dir/HiroakiMikami/jlenv
-
-  if [ -x $JLENV_ROOT/bin/jlenv ]; then
-    export JLENV_ROOT
-    export HAS_JLENV=1
+  local JLENV_ROOT=$dir/HiroakiMikami/jlenv
+  if p6_string_blank "$P6_DFZ_LANGS_DISABLE" && p6_file_executable "$JLENV_ROOT/bin/jlenv"; then
+    p6_env_export JLENV_ROOT "$JLENV_ROOT"
+    p6_env_export HAS_JLENV 1
 
     p6_path_if $JLENV_ROOT/bin
-    eval "$(p6_run_code jlenv init - zsh)"
+    eval "$(jlenv init - zsh)"
   fi
+
+  p6_return_void
 }
 
 ######################################################################
