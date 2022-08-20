@@ -46,9 +46,7 @@
 
 - p6df::modules::julia::deps()
 - p6df::modules::julia::init()
-- p6df::modules::julia::jlenv::init(dir)
-- p6df::modules::julia::prompt::init()
-- str str = p6_julia_env_prompt_info()
+- str str = p6df::modules::jl::env::prompt::info()
 
 
 
