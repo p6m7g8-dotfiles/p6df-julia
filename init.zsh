@@ -17,12 +17,18 @@ p6df::modules::julia::deps() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::julia::init()
+# Function: p6df::modules::julia::init(_module, dir)
+#
+#  Args:
+#	_module -
+#	dir -
 #
 #  Environment:	 P6_DFZ_SRC_DIR
 #>
 ######################################################################
 p6df::modules::julia::init() {
+  local _module="$1"
+  local dir="$2"
 
   p6df::core::lang::mgr::init "$P6_DFZ_SRC_DIR/HiroakiMikami/jlenv" "jl"
 
