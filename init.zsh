@@ -67,11 +67,13 @@ p6df::modules::jl::prompt::lang() {
   local ver_mgr
   ver_mgr=$(jlenv version-name 2>/dev/null)
   if p6_string_eq "$ver_mgr" "system"; then
-    local ver_sys="sys@"
     local v
     v=$(julia -v | awk '{print $3}')
+    local ver_sys
     if p6_string_blank "$v"; then
       ver_sys="sys:no"
+    else
+      ver_sys="sys@$v"
     fi
     ver="$ver_sys"
   else
