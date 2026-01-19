@@ -62,25 +62,11 @@ p6df::modules::jl::prompt::env() {
 ######################################################################
 p6df::modules::jl::prompt::lang() {
 
-  local ver
+  local str
+  str=$(p6df::core::lang::prompt::lang \
+    "jl" \
+    "jlenv version-name 2>/dev/null" \
+    "julia -v | awk '{print $3}'")
 
-  local ver_mgr
-  ver_mgr=$(jlenv version-name 2>/dev/null)
-  if p6_string_eq "$ver_mgr" "system"; then
-    local v
-    v=$(julia -v | awk '{print $3}')
-    local ver_sys
-    if p6_string_blank "$v"; then
-      ver_sys="sys:no"
-    else
-      ver_sys="sys@$v"
-    fi
-    ver="$ver_sys"
-  else
-    ver="$ver_mgr"
-  fi
-
-  local str="jl:$ver"
-
-  p6_return "$str"
+  p6_return_str "$str"
 }
