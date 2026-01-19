@@ -56,7 +56,10 @@ p6df::modules::jl::prompt::env() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::jl::prompt::lang()
+# Function: str str = p6df::modules::jl::prompt::lang()
+#
+#  Returns:
+#	str - str
 #
 #>
 ######################################################################
