@@ -84,5 +84,3 @@ p6df::modules::jl::prompt::lang() {
 
   p6_return "$str"
 }
-
-}
