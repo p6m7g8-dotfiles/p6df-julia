@@ -69,7 +69,7 @@ p6df::modules::jl::prompt::lang() {
   str=$(p6df::core::lang::prompt::lang \
     "jl" \
     "jlenv version-name 2>/dev/null" \
-    "julia -v | awk '{print $3}'")
+    "julia -v | p6_filter_column_pluck 3")
 
   p6_return_str "$str"
 }
