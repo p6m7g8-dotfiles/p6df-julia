@@ -37,6 +37,9 @@ TODO: Add a short summary of this module.
 
 - `p6df::modules::julia::deps()`
 - `p6df::modules::julia::init(_module, dir)`
+  - Args:
+    - _module - 
+    - dir - 
 - `str str = p6df::modules::jl::prompt::env()`
 - `str str = p6df::modules::jl::prompt::lang()`
 
