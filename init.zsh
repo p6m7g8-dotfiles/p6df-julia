@@ -63,5 +63,5 @@ p6df::modules::jl::prompt::lang() {
 ######################################################################
 p6df::modules::julia::prompt::env() {
 
-  p6_return_words 'julia' "$"
+  p6_return_words 'julia' '$JLENV_ROOT' '$JLENV_HOOK_PATH' '$JLENV_DIR'
 }
