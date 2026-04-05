@@ -53,12 +53,12 @@ p6df::modules::jl::prompt::lang() {
 ######################################################################
 #<
 #
-# Function: words julia $JLENV_ROOT = p6df::modules::julia::prompt::env()
+# Function: words julia = p6df::modules::julia::prompt::env()
 #
 #  Returns:
-#	words - julia $JLENV_ROOT
+#	words - julia
 #
-#  Environment:	 JLENV_ROOT
+#  Environment:	 JLENV_DIR JLENV_HOOK_PATH JLENV_ROOT
 #>
 ######################################################################
 p6df::modules::julia::prompt::env() {
